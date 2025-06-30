@@ -1,2 +1,3 @@
 # DSA
-Leetcode
+Leetcode 
+Learning new concepts

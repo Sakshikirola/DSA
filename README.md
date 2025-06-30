@@ -1,3 +1,3 @@
 # DSA
 Leetcode 
-Learning new concepts
+Learning new concepts in DSA 

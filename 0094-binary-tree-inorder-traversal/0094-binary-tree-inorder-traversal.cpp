@@ -11,15 +11,32 @@
  */
 class Solution {
 public:
-    void inorder(TreeNode* root , vector<int>&result){
-       if(root==NULL) return;
-       inorder(root->left,result);
-       result.push_back(root->val);
-       inorder(root->right,result);
-    }
     vector<int> inorderTraversal(TreeNode* root) {
-        vector<int>result;
-        inorder(root,result);
-        return result;
+       vector<int>ans;
+       TreeNode* curr = root;
+
+       while(curr!=NULL){
+        if(curr->left == NULL){
+            ans.push_back(curr->val);
+            curr = curr->right; 
+        } else{
+            //find the IP
+            TreeNode* IP = curr->left;
+            while(IP->right != NULL && IP->right != curr){
+                IP = IP->right;
+            }
+
+            if(IP->right == NULL){
+                IP->right = curr; //create
+                curr = curr->left; 
+            }else{
+                IP->right = NULL; // destroy 
+                ans.push_back(curr->val);
+                curr = curr->right;
+            }
+        }
+       }
+
+       return ans;
     }
 };

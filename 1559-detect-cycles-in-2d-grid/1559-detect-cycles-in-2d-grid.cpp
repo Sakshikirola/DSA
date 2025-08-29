@@ -6,7 +6,7 @@ public:
         char original = grid[row][col];
         queue<pair<pair<int,int>, pair<int,int>>> q; 
         q.push({{row,col}  ,{-1,-1}});
-
+        vis[row][col] = 1;
         int drow[4] = {-1,0,1,0};
         int dcol[4] = {0,1,0,-1};
 
